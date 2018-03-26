@@ -1,9 +1,2 @@
-import defaultTheme from './default';
-import darkTheme from './dark';
+import theme from 'react-native-theme';
 
-// const themeName = 'darkTheme';
-
-export default (themeName) => ({...defaultTheme, ...{
-    defaultTheme,
-    darkTheme
-}[themeName]})

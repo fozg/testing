@@ -1,10 +1,11 @@
-import _theming from '../../theming';
+import {styles} from 'react-native-theme';
 
-export default (theming) => ({
-    wrap: {
+export default {
+    ListItemWrap: {
         padding: 8,
+        paddingTop: 2,
+        paddingBottom: 2,
         flex: 1,
         marginBottom: 5,
-        ...theming.wrap
-    }
-})
+    },
+}

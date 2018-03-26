@@ -1,20 +1,21 @@
 import React from 'react';
-import {StyleSheet, Text, View, AsyncStorage } from 'react-native-web';
+import {StyleSheet, Text, View, AsyncStorage, Button } from 'react-native-web';
+import theme from 'react-native-theme';
+import { styles } from 'react-native-theme';
 
 import ChoiceGroup from './components/ChoiceGroup';
-import ListItem from './components/ListItem';
+import Home from './screens/Home';
 
 class App extends React.Component {
+  count = 0;
 
-  componentWillMount () {
-    setTimeout (() => {
-      this.forceUpdate();
-    }, 1000)
+  componentDidMount = () => {
+    theme.setRoot(this)
   }
 
   render() {
     return (
-      <View style={[{padding: 10, flex: 1}, {backgroundColor: window.theming.primaryBackgoundColor}]}>
+      <View style={[{padding: 5, flex: 1}, styles.App, {overflow: 'auto'}]}>
         {/* <ChoiceGroup 
           choices={[
             {title: 'Gói Ngày', description: '10k Shell/Ngày'},
@@ -23,9 +24,11 @@ class App extends React.Component {
           ]}
           color="#3F51B5"
         /> */}
-        <ListItem 
-        
-        />
+        <Home />
+        <Button title="Press Me" onPress={()=>{
+          theme.active(['dark', 'snailRed', 'yellowDark', 'blue', 'default'][this.count % 5])
+          this.count ++;
+        }} color="gray" />
       </View>
     );
   }

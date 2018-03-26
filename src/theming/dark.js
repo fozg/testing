@@ -1,16 +1,21 @@
-export default {
+const CONSTS = {
     primaryTextColor: '#fff', 
     primaryBackgoundColor: '#000',
     mainColor: 'green',
+}
 
-
+export default {
+    App: {
+        backgroundColor: CONSTS.primaryBackgoundColor
+    },
     StyledText: {
         color: '#fff',
     },
-    ListItem: {
-        wrap: {
-            borderRadius: 10,
-            backgroundColor: '#333'
-        }
-    }
+    ListItemWrap: {  
+        borderRadius: 10,
+        backgroundColor: '#333'
+    },
+    ButtonWrap: {
+        backgroundColor: '#222'
+    },
 }
