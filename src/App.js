@@ -15,7 +15,7 @@ class App extends React.Component {
 
   render() {
     return (
-      <View style={[{padding: 5, flex: 1}, styles.App, {overflow: 'auto'}]}>
+      <View style={[{padding: 5, flex: 1}, styles.App,]}>
         {/* <ChoiceGroup 
           choices={[
             {title: 'Gói Ngày', description: '10k Shell/Ngày'},

@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
-import {StyleSheet, Text, View, AsyncStorage, Button, ListView, } from 'react-native-web';
+import {StyleSheet, Text, View, AsyncStorage, Button, ListView, ScrollView } from 'react-native-web';
+import _ from 'lodash';
 
 import ListItem from '../components/ListItem';
 
@@ -18,7 +19,7 @@ export default class Home extends Component {
     setInterval(() => {
       this._onDataArrived(mock[this.length % mock.length])
       this.length ++;
-    }, 1500)
+    }, 1000)
   }
   
   _onDataArrived(newData) {
@@ -26,28 +27,22 @@ export default class Home extends Component {
     this.setState({
       dataSource: this.state.dataSource.cloneWithRows(this._data)
     }, () => {
-      
+      setTimeout(() => {
+        this.refs.test.scrollToEnd()
+      }, 100)      
     });
   }
   render() {
     const {orders} = this.state;
     return (
-      <View>
-        {/* {
-          orders.reverse().map((o, idx) => (
-            <ListItem
-              key={idx + o.i}
-              item={o}
-            />
-          ))
-        } */}
+      <View style={{flex: 1}}>
+        <ScrollView ref="test" style={{flex: 1}}>
         <ListView
-          ref='listview'
           dataSource={this.state.dataSource}
           renderRow={(item) => <ListItem item={item}></ListItem>}
-          inverted={1}
-
+          
         />
+        </ScrollView>
       </View>
     )
   }
